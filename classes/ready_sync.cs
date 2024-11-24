@@ -58,7 +58,7 @@ public class ReadySync : MonoBehaviour
 	
 	private async void SendReady() 
 	{
-		await Task.Delay(5000);
+		await Task.Delay(200);
 		Plugin.comms.Loaded();
 		StartBypass = true;
 	}

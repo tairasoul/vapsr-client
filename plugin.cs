@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Reflection;
 using BepInEx;
 using BepInEx.Configuration;
@@ -9,14 +8,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Drawing;
 using System.Drawing.Imaging;
-using Mono.Cecil;
-using System.IO;
 
 namespace VapSRClient;
 
 // initial test done by vainstar, im rewriting and further working on/polishing the code and server
 // so, mix names. vainstar + tairasoul
-[BepInPlugin("vainsoul.vaproxy.vapsrclient", "VAP-SR-Client", "0.1.0")]
+[BepInPlugin("vainsoul.vaproxy.vapsrclient", "VAP-SR-Client", "0.1.1")]
 public class Plugin : BaseUnityPlugin 
 {
 	internal static ManualLogSource Log;

@@ -41,7 +41,6 @@ public class SRComms
 		client.OnConnected += OnConnected;
 		client.OnDataReceived += OnDataReceived;
 		client.OnError += OnError;
-		client.Connect();
 	}
 	
 	public async Task MatchmakingCancelBind() 

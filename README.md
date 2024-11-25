@@ -30,3 +30,6 @@ crashes happen sometimes when loading into a match, when opening code screen, wh
 placement screen in private rooms doesn't let you scroll (still don't know why)
 
 custom cursor sometimes just doesn't work
+
+dream menu doesnt appear after dying when in a vapsr match for some reason
+    - all conditions are met and manually executing the coroutine works fine, but Inventory.Update() errors when you try to sit normally

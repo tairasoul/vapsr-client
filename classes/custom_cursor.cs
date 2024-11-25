@@ -3,6 +3,7 @@ using System.Linq;
 using BepInEx;
 using MainMenuSettings.Extensions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace VapSRClient;
@@ -51,8 +52,15 @@ public class CustomCursor : MonoBehaviour
 		Material wordsArtificer = Find<Material>((v) => v.name == "wordsArtificer");
 		cursorObj.GetComponent<Image>().material = wordsArtificer;
 		cursorObj.SetActive(visible);
+		if (SceneManager.GetActiveScene().buildIndex == 2) 
+		{
+			GameObject UICamera = GameObject.Find("MAINMENU").Find("UICamera");
+			visible = UICamera.activeSelf;
+		}
 		if (visible)
 			Cursor.visible = false;
+			
+		cursorObj.SetActive(visible);
 	}
 	
 	void LateUpdate() 

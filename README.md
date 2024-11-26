@@ -25,7 +25,7 @@ this is not va proxy multiplayer. this is more akin to MCSR1V1 (minecraft speedr
 
 ## known issues
 
-crashes happen sometimes when loading into a match, when opening code screen, when creating a room, and probably a few more i don't know about
+crashes happen sometimes when loading into a match, when opening code screen, when creating a room, and probably a few more i don't know about (likely due to how i create the UI, i still need to change that a bit)
 
 placement screen in private rooms doesn't let you scroll (still don't know why)
 

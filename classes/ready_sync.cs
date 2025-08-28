@@ -65,8 +65,9 @@ public class ReadySync : MonoBehaviour
 	
 	public void RunStarted() 
 	{
-		ReflectionHelper helper = new(GameObject.FindFirstObjectByType<Omni>());
-		StartCoroutine(helper.CallMethod<IEnumerator>("Start", null));
+    Omni om = GameObject.FindFirstObjectByType<Omni>();
+    ReflectionHelper helper = new(om);
+		om.StartCoroutine(helper.CallMethod<IEnumerator>("Start", null));
 		Time.timeScale = 1;
 		vShooterMeleeInput input = GameObject.Find("S-105.1").GetComponent<vShooterMeleeInput>();
 		input.enabled = true;

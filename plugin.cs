@@ -13,7 +13,7 @@ namespace VapSRClient;
 
 // initial test done by vainstar, im rewriting and further working on/polishing the code and server
 // so, mix names. vainstar + tairasoul
-[BepInPlugin("vainsoul.vaproxy.vapsrclient", "VAP-SR-Client", "0.1.2")]
+[BepInPlugin("vainsoul.vaproxy.vapsrclient", "VAP-SR-Client", "0.1.3")]
 public class Plugin : BaseUnityPlugin 
 {
 	internal static ManualLogSource Log;

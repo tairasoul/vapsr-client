@@ -42,8 +42,8 @@ public class EndScreen : MonoBehaviour
 		text.alignment = TextAnchor.MiddleCenter;
 		Font font = GetFont("orbitron-medium");
 		text.font = font;
-		Plugin.Log.LogInfo($"match found {SRComms.MatchFound}");
-		if (SRComms.MatchFound)
+		Plugin.Log.LogInfo($"match found {Client.Client.MatchFound}");
+		if (Client.Client.MatchFound)
 			text.text = $"Waiting for opponent to finish.\nYou finished with a time of {FormatTime(time)}";
 		else
 			text.text = $"You finished with a time of {FormatTime(time)}\n\nPress G to return to main menu.";
@@ -98,7 +98,7 @@ public class EndScreen : MonoBehaviour
 	{
 		await Task.Delay(5000);
 		CreateUI(localTime);
-		if (!SRComms.MatchFound)
+		if (!Client.Client.MatchFound)
 			runFinished = true;
 		Time.timeScale = 0;
 		vShooterMeleeInput input = GameObject.Find("S-105.1").GetComponent<vShooterMeleeInput>();

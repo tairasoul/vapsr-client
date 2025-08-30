@@ -18,7 +18,7 @@ static class UtilsPatch
 		CustomSplit[] splits = helper.GetField<CustomSplit[]>("splits");
 		if (CurrentScene != "Intro" && CurrentScene != "Menu")
 		{
-			if (!SRComms.MatchLoaded)
+			if (!Client.Client.MatchLoaded)
 				return true;
 			if (SplitIndex < splits.Length) 
 			{

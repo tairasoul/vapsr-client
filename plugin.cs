@@ -8,17 +8,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Drawing;
 using System.Drawing.Imaging;
+using VapSRClient.Client;
 
 namespace VapSRClient;
 
 // initial test done by vainstar, im rewriting and further working on/polishing the code and server
 // so, mix names. vainstar + tairasoul
-[BepInPlugin("vainsoul.vaproxy.vapsrclient", "VAP-SR-Client", "0.1.3")]
+[BepInPlugin("vainsoul.vaproxy.vapsrclient", "VAP-SR-Client", "0.2.0")]
 public class Plugin : BaseUnityPlugin 
 {
 	internal static ManualLogSource Log;
 	internal static ConfigFile cfg;
-	internal static SRComms comms;
+	internal static Client.Client comms;
 	internal static Harmony harmony = new("vainsoul.vaproxy.vapsrclient");
 	internal static Timer timer;
 	internal static Texture2D CursorImage;
@@ -100,13 +101,13 @@ public class Plugin : BaseUnityPlugin
 			GameObject MainMenuLoadscreenObj = new("VapSRLoadscreen");
 			MainMenuLoadscreenObj.AddComponent<MainMenuLoadscreen>();
 			MainMenuLoadscreenObj.SetActive(true);
-			if (SRComms.MatchLoaded && !EndScreen.runFinished && !SRComms.InPrivateRoom)
+			if (Client.Client.MatchLoaded && !EndScreen.runFinished && !Client.Client.InPrivateRoom)
 				comms.Forfeit();
-			SRComms.MatchLoaded = false;
-			SRComms.MatchFound = false;
+			Client.Client.MatchLoaded = false;
+			Client.Client.MatchFound = false;
 			timer.StopTimer();
 			timer.ResetTime();
-			if (SRComms.InPrivateRoom) 
+			if (Client.Client.InPrivateRoom) 
 			{
 				RoomScreen.CreateBaseCanvas(ClientsideRoomData.RoomCode, comms.StartPrivateRoom, comms.LeavePrivateRoom, ClientsideRoomData.isHost);
 				ClientsideRoomData.UpdatePlayers();

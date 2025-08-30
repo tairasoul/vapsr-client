@@ -10,6 +10,7 @@
     <LangVersion>12</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="old/*" />
     <Reference Include="Assembly-CSharp">
       <HintPath>../../../../.local/share/Steam/steamapps/common/VA Proxy Demo/instance1/VA-Proxy_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>

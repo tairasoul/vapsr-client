@@ -1,4 +1,4 @@
-namespace VapSRClient;
+namespace VapSRClient.Client;
 
 public static class ClientsideRoomData 
 {

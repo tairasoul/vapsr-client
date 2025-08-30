@@ -11,12 +11,12 @@ static class OmniPatches
 	[HarmonyPrefix]
 	static bool Start(Omni __instance) 
 	{
-		if (SRComms.MatchFound && !ReadySync.StartBypass) 
+		if (Client.Client.MatchFound && !ReadySync.StartBypass) 
 		{
 			__instance.first = false;
 			GameObject readySyncObj = new("ReadySync");
 			readySyncObj.AddComponent<ReadySync>();
-			if (SRComms.InPrivateRoom) 
+			if (Client.Client.InPrivateRoom) 
 			{
 				GameObject placementScreen = new("PlacementScreen");
 				placementScreen.AddComponent<PlacementScreen>();

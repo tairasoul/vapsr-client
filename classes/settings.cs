@@ -5,7 +5,7 @@ namespace VapSRClient;
 
 public class Settings : MonoBehaviour 
 {
-	private static GameObject Page;
+	internal static GameObject Page;
 	public static void Register() 
 	{
 		ButtonOption queue = new() 

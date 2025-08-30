@@ -9,7 +9,6 @@ public class MainMenuLoadscreen : MonoBehaviour
 {
 	private GameObject LoadscreenObject;
 	private Text LoadscreenText;
-	private KeyboardTrigger cancel;
 	public bool canCancel = false;
 	void Awake() 
 	{
@@ -18,7 +17,6 @@ public class MainMenuLoadscreen : MonoBehaviour
 		RectTransform transform = text.GetComponent<RectTransform>();
 		transform.sizeDelta = new(400, 120);
 		LoadscreenText = text;
-		cancel = LoadscreenObject.AddComponent<KeyboardTrigger>();
 	}
 	
 	public void Update() 
@@ -27,11 +25,17 @@ public class MainMenuLoadscreen : MonoBehaviour
 		{
 			if (UnityInput.Current.GetKeyDown(KeyCode.Escape)) 
 			{
-				Plugin.comms.CancelMatchmaking();
-				canCancel = false;
-			}
+        MatchmakingCancelled();
+      }
 		}
 	}
+
+	private void MatchmakingCancelled() {
+		Plugin.comms.CancelMatchmaking();
+		canCancel = false;
+    LoadscreenObject.SetActive(false);
+    Settings.Page.SetActive(true);
+  }
 	
 	public void FindingMatch() 
 	{
